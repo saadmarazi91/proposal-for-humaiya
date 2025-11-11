@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be Mine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden; /* For floating hearts */
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #yes {
+            background: #4CAF50;
+            color: white;
+        }
+        #yes:hover {
+            background: #45a049;
+        }
+        #no {
+            background: #f44336;
+            color: white;
+            position: relative;
+        }
+        #no:hover {
+            background: #da190b;
+            transform: translateX(100px); /* Moves right on hover */
+        }
+        #response {
+            font-size: 1.5em;
+            margin-top: 20px;
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: float 6s infinite linear;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey Humaiya, Will You Be Mine? 💕</h1>
+    <p>Every moment with you feels like magic. Your smile lights up my world, and I can't stop thinking about how perfect we could be together. Will you let me cherish you forever? 🌹✨</p>
+    
+    <div class="buttons">
+        <button id="yes">Yes! 💖</button>
+        <button id="no">No 😏</button>
+    </div>
+    <div id="response"></div>
+
+    <!-- Floating hearts for romance -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart" style="left: 20%; animation-delay: 1s;">💖</div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;">💕</div>
+    <div class="heart" style="left: 40%; animation-delay: 3s;">🌹</div>
+    <div class="heart" style="left: 50%; animation-delay: 4s;">✨</div>
+    <div class="heart" style="left: 60%; animation-delay: 5s;">❤️</div>
+    <div class="heart" style="left: 70%; animation-delay: 6s;">💖</div>
+    <div class="heart" style="left: 80%; animation-delay: 7s;">💕</div>
+    <div class="heart" style="left: 90%; animation-delay: 8s;">🌹</div>
+
+    <script>
+        const yesBtn = document.getElementById('yes');
+        const noBtn = document.getElementById('no');
+        const response = document.getElementById('response');
+
+        yesBtn.addEventListener('click', () => {
+            response.style.display = 'block';
+            response.innerHTML = 'Yay! I love you! 🎉❤️ Confetti time!';
+            response.style.color = '#4CAF50';
+            // Simple confetti effect (you can replace with a library like confetti.js for better results)
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = '🎉';
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '0px';
+                confetti.style.fontSize = '2em';
+                confetti.style.animation = 'float 3s linear';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        });
+
+        noBtn.addEventListener('click', () => {
+            response.style.display = 'block';
+            response.innerHTML = 'Aww, but I\'ll keep trying! 😘';
+            response.style.color = '#f44336';
+        });
+    </script>
+</body>
+</html>
